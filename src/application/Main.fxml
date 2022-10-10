@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
+   <children>
+      <Spinner fx:id="mySpinner" layoutX="152.0" layoutY="135.0" prefHeight="26.0" prefWidth="73.0" />
+      <Label fx:id="myLabel" alignment="CENTER" contentDisplay="CENTER" layoutY="172.0" prefHeight="18.0" prefWidth="600.0" text="Choose four lucky numbers!">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Spinner fx:id="mySpinner1" layoutX="226.0" layoutY="135.0" prefHeight="26.0" prefWidth="74.0" />
+      <Spinner fx:id="mySpinner2" layoutX="300.0" layoutY="135.0" prefHeight="26.0" prefWidth="74.0" />
+      <Spinner fx:id="mySpinner3" layoutX="374.0" layoutY="135.0" prefHeight="26.0" prefWidth="74.0" />
+      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="235.0" layoutY="235.0" mnemonicParsing="false" onAction="#myButton" text="I'm Feeling Lucky!">
+         <font>
+            <Font size="14.0" />
+         </font></Button>
+   </children>
+</AnchorPane>
