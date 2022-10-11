@@ -9,11 +9,16 @@ import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
 
 public class Controller implements Initializable{
+	
+	public int cash = 1000;
+	Alert alert = new Alert(Alert.AlertType.ERROR);
 	
 	@FXML
 	private Spinner<Integer> mySpinner;
@@ -29,6 +34,9 @@ public class Controller implements Initializable{
 	
 	@FXML
 	private Label myLabel;
+	
+	@FXML
+	private Label cashlabel;
 	
 	int currentValue;
 	int currentValue1;
@@ -86,39 +94,50 @@ public class Controller implements Initializable{
 //		
 //		System.out.println(y);
 		
-		win = 0;
-		
-		currentValue = mySpinner.getValue();
-		
-		if(currentValue == ThreadLocalRandom.current().nextInt(0, 9)) {
-			win++;
+		if (cash >= 20)
+		{
+			win = 0;
+			
+			currentValue = mySpinner.getValue();
+			
+			if(currentValue == ThreadLocalRandom.current().nextInt(0, 9)) {
+				win++;
+			}
+			
+			currentValue1 = mySpinner1.getValue();
+			
+			if(currentValue1 == ThreadLocalRandom.current().nextInt(0, 9)) {
+				win++;
+			}
+			
+			currentValue2 = mySpinner2.getValue();
+			
+			if(currentValue2 == ThreadLocalRandom.current().nextInt(0, 9)) {
+				win++;
+			}
+			
+			currentValue3 = mySpinner3.getValue();
+			
+			if(currentValue3 == ThreadLocalRandom.current().nextInt(0, 9)) {
+				win++;
+			}
+			
+			if(win > 0) {
+				myLabel.setText("You got lucky with " + win + " number(s)!");
+				cash += win * 40 - 20;
+			}else {
+				myLabel.setText("Unfortunately, you didn't win anything");
+				cash -= 20;
+			}
+			
+			cashlabel.setText("Cash: $" + cash);
 		}
-		
-		currentValue1 = mySpinner1.getValue();
-		
-		if(currentValue1 == ThreadLocalRandom.current().nextInt(0, 9)) {
-			win++;
+		else
+		{
+			alert.setTitle("Oops!");
+			alert.setHeaderText("You do not have enough money!");
+			alert.show();
 		}
-		
-		currentValue2 = mySpinner2.getValue();
-		
-		if(currentValue2 == ThreadLocalRandom.current().nextInt(0, 9)) {
-			win++;
-		}
-		
-		currentValue3 = mySpinner3.getValue();
-		
-		if(currentValue3 == ThreadLocalRandom.current().nextInt(0, 9)) {
-			win++;
-		}
-		
-		if(win > 0) {
-			myLabel.setText("You got lucky with " + win + " number(s)!");
-		}else {
-			myLabel.setText("Unfortunately, you didn't win anything");
-		}
-		
-		
 	}
 	
 }
